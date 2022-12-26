@@ -4,8 +4,6 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const galleryListMarkup = document.querySelector('.gallery');
-//const galleryLink = document.querySelector('.gallery__link');
-
 
 const makeGalleryCard = ({ preview, description, original } = galleryItems) => {
     return ` 
@@ -24,11 +22,8 @@ const galleryCards = galleryItems.map((el) => {
 });
 galleryListMarkup.insertAdjacentHTML('afterbegin', galleryCards.join(''));
 
-
-
 const galleryClick = event => {
-    event.preventDefault();
-    if (event.target.nodeName !== "IMG") return;
+    event.preventDefault();    
 
     const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" width="800" height="600">
