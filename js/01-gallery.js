@@ -23,7 +23,8 @@ const galleryCards = galleryItems.map((el) => {
 galleryListMarkup.insertAdjacentHTML('afterbegin', galleryCards.join(''));
 
 const galleryClick = event => {
-    event.preventDefault();    
+    event.preventDefault();  
+    if (event.target.nodeName !== "IMG") return;
 
     const instance = basicLightbox.create(`
     <img src="${event.target.dataset.source}" width="800" height="600">
